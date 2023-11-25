@@ -24,7 +24,8 @@ function doStep(target) {
 
 function init(e) {
   const curField = e.target.closest(".field");
-  if (!curField.classList.contains("o", "x")) {
+  //Если бы не была такая запись, то он бы игнорировал один из знаков
+  if (!curField.classList.contains("o") && !curField.classList.contains("x")) {
     console.log("here");
     doStep(e.target);
     stepCross = !stepCross;
@@ -72,6 +73,7 @@ function win() {
       game.removeEventListener("click", init);
       break;
     }
+    //Не придумала, как исправить, но на 9 ход он всегда делает ничью, даже если кто-то победил
     if (count === 9) {
       res.innerHTML = "Ничья";
       game.removeEventListener("click", init);
