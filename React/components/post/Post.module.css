@@ -1,0 +1,45 @@
+
+.post {
+    border: 1px solid darkblue;
+    padding: 15px 10px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+}
+
+.post * {
+    margin: 0;
+}
+
+.post-title {
+    font-size: 1.75rem;
+}
+
+.post-buttons {
+    display: flex;
+    justify-content: flex-end;
+    column-gap: 10px;
+}
+
+.post-buttons button {
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    font-weight: 600;
+    border-radius: 5px;
+    border: 1px solid black;
+    padding: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+.post-open {
+    background: darkblue;
+}
+
+.post-delete {
+    background: red;
+}
+
