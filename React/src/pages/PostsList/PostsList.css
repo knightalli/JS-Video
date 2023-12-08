@@ -1,0 +1,27 @@
+.container {
+    padding: 20px;
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+.post-list {
+    display: flex;
+    flex-direction: column;
+    row-gap: .75rem;
+    justify-content: center;
+    width: 100%;
+}
+
+.post-add {
+    background-color: green;
+    margin-top: 15px;
+}
+
+.post-input {
+    border: 1px solid darkblue;
+    height: 2rem;
+    width: 100%;
+    padding: 20px 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
