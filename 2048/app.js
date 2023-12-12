@@ -41,7 +41,7 @@ function handleInput(event) {
         return;
     }
 
-    if (!(canMove(grid.groupedCellsByColumn)) || (canMove(grid.groupedCellsByReversedColumn)) || (canMove(grid.groupedCellsByRow)) || (canMove(grid.groupedCellsByReversedRow))) {
+    if (!(canMove(grid.groupedCellsByColumn) || canMove(grid.groupedCellsByReversedColumn) || canMove(grid.groupedCellsByRow) || canMove(grid.groupedCellsByReversedRow))) {
         alert('Поражение');
         document.removeEventListener("keydown", handleInput);
         return;
