@@ -11,6 +11,11 @@ export class Grid {
         new Cell(gridElement, i % GRID_SIZE, Math.floor(i / GRID_SIZE))
       );
     }
+
+    this.groupedCellsByColumn = this.groupCellsByColumn();
+    this.groupedCellsByReversedColumn = this.groupedCellsByColumn.map(column => [...column].reverse())
+    this.groupedCellsByRow = this.groupCellsByRow();
+    this.groupedCellsByReversedRow = this.groupedCellsByRow.map(row => [...row].reverse())
   }
 
   getRandomEmptyCell() {
@@ -18,5 +23,21 @@ export class Grid {
     const randomIndex = Math.floor(Math.random() * emptyCells.length);
 
     return emptyCells[randomIndex];
+  }
+
+  groupCellsByColumn() {
+    return this.cells.reduce((groupedCells, cell) => {
+      groupedCells[cell.x] = groupedCells[cell.x] || [];
+      groupedCells[cell.x][cell.y] = cell;
+      return groupedCells;
+    }, []);
+  }
+
+  groupCellsByRow() {
+    return this.cells.reduce((groupedCells, cell) => {
+      groupedCells[cell.y] = groupedCells[cell.y] || [];
+      groupedCells[cell.y][cell.x] = cell;
+      return groupedCells;
+    }, []);
   }
 }

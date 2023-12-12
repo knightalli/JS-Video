@@ -19,4 +19,23 @@ export class Cell {
   isEmpty() {
     return !this.linkedTile;
   }
+
+  unlinkTile() {
+    this.linkedTile = null;
+  }
+
+  linkTileForMerge(tile) {
+    tile.setXY(this.x, this.y);
+    this.linkedTileForMerge = tile;
+  }
+
+  canAccept(newTile) {
+    return this.isEmpty() || (!this.linkedTileForMerge && this.linkedTile.value === newTile.value);
+  }
+
+  mergeTiles() {
+    this.linkedTile.setValue(this.linkedTile.value + this.linkedTileForMerge.value)
+    this.linkedTileForMerge.tileElement.remove();
+    this.linkedTileForMerge = null;
+  }
 }
