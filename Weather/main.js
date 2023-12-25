@@ -64,12 +64,15 @@ const fetchData = async () => {
         country,
     };
 
+    let app = document.querySelector(".app");
+    if (temp - 273.15 > 15) app.classList.add("warm");
+    else app.classList.remove("warm");
     renderComponent();
 };
 
 const getLoader = () => {
     container.innerHTML = '<span class="loader"></span>';
-}
+};
 
 const renderComponent = () => {
     container.innerHTML = getContent();
@@ -84,7 +87,7 @@ const getContent = () => {
 </div>
 
 <div class="weather-box">
-    <div class="temp">${temp} °F</div>
+    <div class="temp">${Math.round(temp - 273.15)} °C</div>
     <div class="weather">${weather}</div>
 </div>`;
 };
